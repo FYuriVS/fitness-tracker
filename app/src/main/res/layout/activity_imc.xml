@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFF2F4">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/background_card"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        tools:context=".ImcActivity">
+
+        <TextView
+            style="@style/TextViewForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/imc_desc"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edit_imc_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
+            android:autofillHints="@string/weight"
+            android:hint="@string/weight"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textColor="#232F34"
+            android:textColorHint="#232F34" />
+
+        <EditText
+            android:id="@+id/edit_imc_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
+            android:autofillHints="@string/height"
+            android:hint="@string/height"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textColor="#232F34"
+            android:textColorHint="#232F34" />
+
+        <Button
+            android:id="@+id/btn_imc_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/calc"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
+
