@@ -2,6 +2,7 @@ package com.yurivital.fitness
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -12,6 +13,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.getSystemService
 import com.yurivital.fitness.databinding.ActivityImcBinding
+import com.yurivital.fitness.model.Calc
 
 class ImcActivity : AppCompatActivity() {
 
@@ -50,6 +52,20 @@ class ImcActivity : AppCompatActivity() {
                 .setMessage(imcResponseId)
                 .setPositiveButton(android.R.string.ok) { dialog, which ->
 
+                }
+                .setNegativeButton(R.string.save) { dialog, which ->
+                    Thread {
+                        val app = (application as App)
+                        val dao = app.db.calcDao()
+                        dao.insert(Calc(type = "imc", res = result))
+
+                        runOnUiThread {
+                            val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
+                            intent.putExtra("type", "imc")
+                            startActivity(intent)
+                        }
+
+                    }.start()
                 }
                 .create()
                 .show()
